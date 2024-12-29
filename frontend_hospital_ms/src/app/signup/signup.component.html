@@ -1,0 +1,87 @@
+<nav style="margin:auto" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">PulseBridge</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" routerLink="/login" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Login
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5" style="background: linear-gradient(to right, #ffffff, #e3f2fd); border-radius: 15px; padding: 30px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg" style="border-radius: 15px;">
+                <div class="card-header text-white text-center" style="background: linear-gradient(45deg, #4caf50, #2196f3);">
+                    <h3 style="font-weight: bold;">Signup</h3>
+                    <p>Create an account by filling out the details below</p>
+                </div>
+                <div class="card-body">
+                    <form #signupForm="ngForm" (ngSubmit)="register(signupForm)">
+                        <!-- Name -->
+                        <div class="form-group mb-3">
+                            <label for="name"><h5 style="color: black;">Name</h5></label>
+                            <input type="text" name="name" [(ngModel)]="user.name" class="form-control" id="name" placeholder="Enter your name" required #nameRef="ngModel" />
+                            <div *ngIf="nameRef.invalid && nameRef.touched" class="text-danger">
+                                Name is required.
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group mb-3">
+                            <label for="email"><h5 style="color: black;">Email</h5></label>
+                            <input type="email" name="email" [(ngModel)]="user.email" class="form-control" id="email" placeholder="Enter your email" required email #emailRef="ngModel" />
+                            <div *ngIf="emailRef.invalid && emailRef.touched" class="text-danger">
+                                <span *ngIf="emailRef.errors?.['required']">Email is required.</span>
+                                <span *ngIf="emailRef.errors?.['email']">Enter a valid email address.</span>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group mb-3">
+                            <label for="password"><h5 style="color: black;">Password</h5></label>
+                            <input type="password" name="password" [(ngModel)]="user.password" class="form-control" id="password" placeholder="Enter your password" required minlength="6" #passwordRef="ngModel" />
+                            <div *ngIf="passwordRef.invalid && passwordRef.touched" class="text-danger">
+                                <span *ngIf="passwordRef.errors?.['required']">Password is required.</span>
+                                <span *ngIf="passwordRef.errors?.['minlength']">
+                                    Password must be at least 6 characters long.
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Number -->
+                        <div class="form-group mb-3">
+                            <label for="mobilenumber"><h5 style="color: black;">Mobile Number</h5></label>
+                            <input type="text" name="mobilenumber" [(ngModel)]="user.mobileNumber" class="form-control" id="mobilenumber" placeholder="Enter your mobile number" required pattern="^[0-9]{10}$" #mobileRef="ngModel" />
+                            <div *ngIf="mobileRef.invalid && mobileRef.touched" class="text-danger">
+                                <span *ngIf="mobileRef.errors?.['required']">Mobile number is required.</span>
+                                <span *ngIf="mobileRef.errors?.['pattern']">
+                                    Enter a valid 10-digit mobile number.
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-grid gap-2">
+                            <button [disabled]="signupForm.invalid" class="btn btn-success btn-block" type="submit" style="background: #4caf50; font-weight: bold;">
+                                Signup
+                            </button>
+                            <button class="btn btn-warning btn-block" type="button" routerLink="/login" style="font-weight: bold;">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>Already have an account? <a routerLink="/login" class="text-primary">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

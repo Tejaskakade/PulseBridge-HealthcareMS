@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">NEW HOSPITALS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/docdash">Dashboard</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" (click)="logout()" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Patient Details</h2>
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="text-center">View Patient</h4>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name"><strong>Name:</strong></label>
+                        <input type="text" id="name" class="form-control" [(ngModel)]="patient.name" name="name" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="age"><strong>Age:</strong></label>
+                        <input type="text" id="age" class="form-control" [(ngModel)]="patient.age" name="age" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="blood"><strong>Blood Type:</strong></label>
+                        <input type="text" id="blood" class="form-control" [(ngModel)]="patient.blood" name="blood" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="prescription"><strong>Prescription:</strong></label>
+                        <input type="text" id="prescription" class="form-control" [(ngModel)]="patient.presription" name="prescription" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="dose"><strong>Dose:</strong></label>
+                        <input type="text" id="dose" class="form-control" [(ngModel)]="patient.dose" name="dose" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="fees"><strong>Fees:</strong></label>
+                        <input type="text" id="fees" class="form-control" [(ngModel)]="patient.fees" name="fees" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="urgency"><strong>Urgency:</strong></label>
+                        <input type="text" id="urgency" class="form-control" [(ngModel)]="patient.urgency" name="urgency" readonly>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="card-footer text-center">
+            <button class="btn btn-primary mr-2" (click)="goBack()">Back</button>
+            <button class="btn btn-danger" (click)="deletePatient()">Delete Patient</button>
+        </div> -->
+    </div>
+</div>

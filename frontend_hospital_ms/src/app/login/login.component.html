@@ -1,0 +1,85 @@
+<nav style="margin:auto" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">PulseBridge</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" routerLink="/signup" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Signup
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5" style="background: linear-gradient(to right, #ffffff, #e3f2fd); border-radius: 15px; padding: 30px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg" style="border-radius: 15px;">
+                <div class="card-header text-white text-center" style="background: linear-gradient(45deg, #4caf50, #2196f3);">
+                    <h3 style="font-weight: bold;">Login</h3>
+                    <p>Please enter your Username, Password, and Role</p>
+                </div>
+                <div class="card-body">
+                    <form #loginForm="ngForm" (ngSubmit)="checkLogin()">
+                        <!-- Username -->
+                        <div class="form-group mb-3">
+                            <label for="username">
+                                <h5 style="color: black;">Username</h5>
+                            </label>
+                            <input type="text" name="username" [(ngModel)]="username" class="form-control" id="username" placeholder="Enter your username" required #usernameRef="ngModel" />
+                            <div *ngIf="usernameRef.invalid && usernameRef.touched" class="text-danger">
+                                Username is required.
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group mb-3">
+                            <label for="password">
+                                <h5 style="color: black;">Password</h5>
+                            </label>
+                            <input type="password" name="password" [(ngModel)]="password" class="form-control" id="password" placeholder="Enter your password" required #passwordRef="ngModel" />
+                            <div *ngIf="passwordRef.invalid && passwordRef.touched" class="text-danger">
+                                Password is required.
+                            </div>
+                        </div>
+
+                        <!-- Role -->
+                        <div class="form-group mb-3">
+                            <label for="role">
+                                <h5 style="color: black;">Role</h5>
+                            </label>
+                            <select name="role" [(ngModel)]="role" class="form-control" id="role" required style="background-color: #e3f2fd; font-weight: bold;">
+                                <option value="Admin">Admin</option>
+                                <option value="Doctor">Doctor</option>
+                            </select>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-grid gap-2">
+                            <button [disabled]="loginForm.invalid" class="btn btn-success btn-block" type="submit" style="background: #4caf50; font-weight: bold;">
+                                Login
+                            </button>
+                            <button class="btn btn-warning btn-block" type="button" routerLink="/home" style="font-weight: bold;">
+                                Cancel
+                            </button>
+                        </div>
+                        <div *ngIf="inValidLogin" class="text-danger mt-3">
+                            Invalid credentials or role. Please try again.
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>
+                        Don't have an account?
+                        <a routerLink="/signup" class="text-primary" style="font-weight: bold; text-decoration: underline;">
+                            Signup here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark">
+    <a style="color: white;" class="navbar-brand" href="#">PulseBridge</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/docdash">Back</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <!-- Use ml-auto for right alignment -->
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" (click)="logout()" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Update Patient</h2>
+
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <!-- Name -->
+                    <div class="form-group col-md-6 mb-3">
+                        <label><strong>Name</strong></label>
+                        <input type="text" id="name" name="name" placeholder="Enter your Name" class="form-control" [(ngModel)]="patient.name" />
+                    </div>
+
+                    <!-- Age -->
+                    <div class="form-group col-md-6 mb-3">
+                        <label><strong>Age</strong></label>
+                        <input type="text" id="age" name="age" placeholder="Enter your Age" class="form-control" [(ngModel)]="patient.age" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Blood -->
+                    <div class="form-group col-md-6 mb-3">
+                        <label><strong>Blood Type</strong></label>
+                        <input type="text" id="blood" name="blood" placeholder="Enter your Blood Type" class="form-control" [(ngModel)]="patient.blood" />
+                    </div>
+
+                    <!-- Prescription -->
+                    <div class="form-group col-md-6 mb-3">
+                        <label><strong>Prescription</strong></label>
+                        <input type="text" id="prescription" name="prescription" placeholder="Enter Prescription" class="form-control" [(ngModel)]="patient.presription" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Dose -->
+                    <div class="form-group col-md-6 mb-3">
+                        <label><strong>Dose</strong></label>
+                        <input type="text" id="dose" name="dose" placeholder="Enter your Dose" class="form-control" [(ngModel)]="patient.dose" />
+                    </div>
+
+                    <!-- Fees -->
+                    <div class="form-group col-md-6 mb-3">
+                        <label><strong>Fees</strong></label>
+                        <input type="text" id="fees" name="fees" placeholder="Enter your Fees" class="form-control" [(ngModel)]="patient.fees" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Urgency -->
+                    <div class="form-group col-md-6 mb-3">
+                        <label><strong>Urgency</strong></label>
+                        <input type="text" id="urgency" name="urgency" placeholder="Enter your Urgency" class="form-control" [(ngModel)]="patient.urgency" />
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success btn-lg px-4">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

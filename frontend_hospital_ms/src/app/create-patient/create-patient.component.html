@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white" href="#">PulseBridge</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="javascript:void(0);" routerLink="/docdash">Dashboard</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" (click)="logout()" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Add New Patient</h2>
+                    <p>Please fill in the details below</p>
+                </div>
+                <div class="card-body">
+                    <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
+                        <!-- Name -->
+                        <div class="form-group mb-3">
+                            <label for="name"><strong>Name</strong></label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter patient's name" [(ngModel)]="patient.name" #name="ngModel" required />
+                            <div *ngIf="name.invalid && name.touched" class="text-danger">
+                                Name is required.
+                            </div>
+                        </div>
+
+                        <!-- Age -->
+                        <div class="form-group mb-3">
+                            <label for="age"><strong>Age</strong></label>
+                            <input type="text" id="age" name="age" class="form-control" placeholder="Enter patient's age" [(ngModel)]="patient.age" #age="ngModel" required pattern="^[0-9]+$" />
+                            <div *ngIf="age.invalid && age.touched" class="text-danger">
+                                Age is required and must be a number.
+                            </div>
+                        </div>
+
+                        <!-- Blood Type -->
+                        <div class="form-group mb-3">
+                            <label for="blood"><strong>Blood Type</strong></label>
+                            <input type="text" id="blood" name="blood" class="form-control" placeholder="Enter blood type (e.g., A+, B-)" [(ngModel)]="patient.blood" #blood="ngModel" required />
+                            <div *ngIf="blood.invalid && blood.touched" class="text-danger">
+                                Blood type is required.
+                            </div>
+                        </div>
+
+                        <!-- Prescription -->
+                        <div class="form-group mb-3">
+                            <label for="prescription"><strong>Prescription</strong></label>
+                            <textarea id="prescription" name="prescription" class="form-control" rows="3" placeholder="Enter prescription details" [(ngModel)]="patient.presription" #prescription="ngModel" required></textarea>
+                            <div *ngIf="prescription.invalid && prescription.touched" class="text-danger">
+                                Prescription details are required.
+                            </div>
+                        </div>
+
+                        <!-- Dose -->
+                        <div class="form-group mb-3">
+                            <label for="dose"><strong>Dose</strong></label>
+                            <input type="text" id="dose" name="dose" class="form-control" placeholder="Enter dose details" [(ngModel)]="patient.dose" #dose="ngModel" required />
+                            <div *ngIf="dose.invalid && dose.touched" class="text-danger">
+                                Dose details are required.
+                            </div>
+                        </div>
+
+                        <!-- Fees -->
+                        <div class="form-group mb-3">
+                            <label for="fees"><strong>Fees</strong></label>
+                            <input type="text" id="fees" name="fees" class="form-control" placeholder="Enter consultation fees" [(ngModel)]="patient.fees" #fees="ngModel" required pattern="^[0-9]+$" />
+                            <div *ngIf="fees.invalid && fees.touched" class="text-danger">
+                                Fees are required and must be a valid number.
+                            </div>
+                        </div>
+
+                        <!-- Urgency -->
+                        <div class="form-group mb-4">
+                            <label for="urgency"><strong>Urgency</strong></label>
+                            <input type="text" id="urgency" name="urgency" class="form-control" placeholder="Enter urgency level" [(ngModel)]="patient.urgency" #urgency="ngModel" required />
+                            <div *ngIf="urgency.invalid && urgency.touched" class="text-danger">
+                                Urgency level is required.
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success btn-lg" [disabled]="patientForm.invalid">
+                                Submit
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-lg" (click)="cancel()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

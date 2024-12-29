@@ -1,0 +1,66 @@
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark">
+    <a style="color: white;" class="navbar-brand" href="#">PulseBridge</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/appointmentlist">Back</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" (click)="logout()" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add New Appointment</h2>
+    <form #appointmentForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Name -->
+        <div class="form-group mb-3">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" [(ngModel)]="appointment.name" required #nameRef="ngModel" />
+            <div *ngIf="nameRef.invalid && nameRef.touched" class="text-danger">
+                <small *ngIf="nameRef.errors?.['required']">Name is required.</small>
+            </div>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group mb-3">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" class="form-control" placeholder="Enter Age" [(ngModel)]="appointment.age" required min="1" max="120" #ageRef="ngModel" />
+            <div *ngIf="ageRef.invalid && ageRef.touched" class="text-danger">
+                <small *ngIf="ageRef.errors?.['required']">Age is required.</small>
+                <small *ngIf="ageRef.errors?.['min'] || ageRef.errors?.['max']">Age must be between 1 and 120.</small>
+            </div>
+        </div>
+
+        <!-- Symptoms -->
+        <div class="form-group mb-3">
+            <label for="symptoms">Symptoms</label>
+            <input type="text" id="symptoms" name="symptoms" class="form-control" placeholder="Enter Symptoms" [(ngModel)]="appointment.symtomps" required minlength="1" #symptomsRef="ngModel" />
+            <div *ngIf="symptomsRef.invalid && symptomsRef.touched" class="text-danger">
+                <small *ngIf="symptomsRef.errors?.['required']">Symptoms are required.</small>
+                <small *ngIf="symptomsRef.errors?.['minlength']">Symptoms should not empty.</small>
+            </div>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="form-group mb-4">
+            <label for="number">Contact Number</label>
+            <input type="text" id="number" name="number" class="form-control" placeholder="Enter Contact Number" [(ngModel)]="appointment.number" required pattern="^[0-9]{10}$" #numberRef="ngModel" />
+            <div *ngIf="numberRef.invalid && numberRef.touched" class="text-danger">
+                <small *ngIf="numberRef.errors?.['required']">Contact number is required.</small>
+                <small *ngIf="numberRef.errors?.['pattern']">Contact number must be a 10-digit number.</small>
+            </div>
+        </div>
+
+        <button [disabled]="appointmentForm.invalid" type="submit" class="btn btn-success btn-block">Submit</button>
+    </form>
+</div>

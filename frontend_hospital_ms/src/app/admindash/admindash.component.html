@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white" href="#">PulseBridge</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Left Side Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/appointmentlist">Appointments</a>
+            </li>
+        </ul>
+
+        <!-- Right Side Links (Logout) -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" (click)="logout()" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    <hr>
+    <h2 style="text-align: center;margin-top: 20PX;">Admin Dashboard</h2>
+    <a style="color: rgb(86, 86, 86); font-size: x-large;">
+        <marquee behavior="scroll" direction="left">
+            Welcome to Admin Dashboard. Please find the patient list below!!. Click Appointments to view and update Appointments, Click Add Appointment to add new Appointment</marquee>
+    </a>
+    <hr>
+    <!-- <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search" (input)="searchPatients()"> -->
+    <br>
+    <a style="color: rgb(86, 86, 86); font-size: xx-large;">Current Patient List in the Queue</a>
+    <div class="tableFixHead">
+        <br>
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th> Fees</th>
+                    <th>Urgency</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let patient of patients">
+                    <td>{{patient.id}}</td>
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.age}}</td>
+                    <td>{{patient.fees}}</td>
+                    <td>{{patient.urgency}}</td>
+                    <td><button (click)="delete(patient.id)" class="btn btn-danger">Delete</button></td>
+
+                </tr>
+            </tbody>
+
+        </table>

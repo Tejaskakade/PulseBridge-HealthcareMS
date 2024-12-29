@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-PulseBridge</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .carousel-inner img {
+            width: 100%;
+            height: calc(100vh - 50px);
+            object-fit: cover;
+        }
+        
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+        
+        .carousel-caption h2 {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            font-weight: bolder;
+        }
+        
+        .carousel-caption p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        
+        .about-section {
+            padding: 60px 30px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: rgb(56, 171, 206);
+        }
+        
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .about-section .btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .about-section .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(56, 171, 206);
+            background-color: transparent;
+            height: 30%;
+            width: 80%;
+        }
+        
+        .feature-card {
+            border-radius: 15px;
+            border: none;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 3%;
+            /* border-color: grey; */
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border: 0.2rem solid grey;
+        }
+        
+        .feature-card img {
+            /* border-radius: 15px; */
+            padding-top: 8%;
+            padding-left: 2%;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .feature-card-body {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        
+        .feature-card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .feature-card-text {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #007bff;
+        }
+        
+        .navbar-nav .nav-item+.nav-item {
+            margin-left: 15px;
+        }
+        
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #f8d7da !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">PulseBridge</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" routerLink="/signup">SignUp</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" routerLink="/login">Login</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/banner.jpg" class="d-block w-100" alt="Banner">
+                <div class="carousel-caption">
+                    <h2>Welcome to PulseBridge</h2>
+                    <p>10000+ Healing Hands | Advanced Treatment | Best Clinical Outcomes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>
+            PulseBridge is a cutting-edge hospital management system designed to streamline healthcare operations. Our platform connects patients, doctors, and administrators with efficiency and reliability. From managing appointments to ensuring advanced clinical
+            outcomes, PulseBridge is your trusted partner in delivering top-notch healthcare services.
+        </p>
+        <a href="javascript:void(0);" class="btn">Learn More</a>
+        <hr>
+    </div>
+
+    <h1 class="text-center " style="font-weight: bold; color: rgb(56, 171, 206);">Our Specialist's </h1>
+    <!-- Feature Cards Section -->
+    <div class="container my-4">
+        <div class="row mb-6">
+            <!-- Doctor 1 -->
+            <div class="col-md-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row no-gutters">
+                        <!-- Details Section -->
+                        <div class="col-md-8">
+                            <div class="card-body feature-card-body">
+                                <h3 class="feature-card-title">Dr. Vivek Valvi</h3>
+                                <h5>MBBS, MS (Orthopedics)</h5>
+                                <p class="feature-card-text">
+                                    Expert in restoring strength, mobility, and quality of life through advanced orthopedic care.
+                                </p>
+                                <h5>Expertise</h5>
+                                <ul>
+                                    <li>Total Knee and Hip Replacement</li>
+                                    <li>Arthroscopy and Sports Medicine</li>
+                                    <li>Spine and Back Disorders</li>
+                                    <li>Pediatric Orthopedics</li>
+                                    <li>Trauma and Fracture Management</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Image Section -->
+                        <div class="col-md-3">
+                            <img src="../../assets/profile/img1.jpg" class="card-img" alt="Dr. Vivek Valvi">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Doctor 2 -->
+            <div class="col-md-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="../../assets/profile/img2.jpg" class="card-img" alt="Dr. Tejas Kakade">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body feature-card-body">
+                                <h3 class="feature-card-title">Dr. Tejas Kakade</h3>
+                                <h5>MBBS, MD (General Medicine)</h5>
+                                <p class="feature-card-text">Specialization: Internal Medicine</p>
+                                <h5>Expertise:</h5>
+                                <ul>
+                                    <li>Diabetes Management</li>
+                                    <li>Hypertension Treatment</li>
+                                    <li>Respiratory Disorders</li>
+                                    <li>Gastrointestinal Diseases</li>
+                                    <li>Preventive Healthcare</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor 3 -->
+            <div class="col-md-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body feature-card-body">
+                                <h3 class="feature-card-title">Dr. Shivam</h3>
+                                <h5>MBBS, MD (Cardiology)</h5>
+                                <p class="feature-card-text">Expert in Cardiovascular Treatments.</p>
+                                <h5>Expertise</h5>
+                                <ul>
+                                    <li>Heart Disease Management</li>
+                                    <li>Interventional Cardiology</li>
+                                    <li>Arrhythmia Treatment</li>
+                                    <li>Hypertension Control</li>
+                                    <li>Preventive Cardiology</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="../../assets/profile/img3.jpg" class="card-img" alt="Dr. Shivam">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Doctor 4 -->
+            <div class="col-md-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="../../assets/profile/img4.jpg" class="card-img" alt="Dr. Aishwarya">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body feature-card-body">
+                                <h3 class="feature-card-title">Dr. Priya</h3>
+                                <h5>MBBS, MS (Pediatrics)</h5>
+                                <p class="feature-card-text">Specialized in Child Health and Development.</p>
+                                <h5>Expertise</h5>
+                                <ul>
+                                    <li>Neonatal Care</li>
+                                    <li>Childhood Immunizations</li>
+                                    <li>Developmental Disorders</li>
+                                    <li>Nutrition and Growth</li>
+                                    <li>Pediatric Emergencies</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+
+    <footer>
+        Contact: 1860 344 5454 | &copy; 2024-2025 PulseBridge, Inc.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

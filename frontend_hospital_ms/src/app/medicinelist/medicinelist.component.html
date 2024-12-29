@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white" href="#">PulseBridge</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Left Side Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="javascript:void(0);" routerLink="/docdash">Back</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="javascript:void(0);" routerLink="/create-medicine">Add Medicines</a>
+            </li>
+        </ul>
+
+        <!-- Right Side Links (Logout) -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white border border-primary rounded px-3 py-1" href="javascript:void(0);" (click)="logout()" style="font-weight: bold; background-color: rgba(0, 123, 255, 0.1);">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <hr>
+    <h2 class="text-center mb-3" style="font-size: 2.5rem; font-weight: 700;">Medicine List</h2>
+
+    <div class="text-center mb-3">
+        <a class="text-muted" style="font-size: 1.2rem; font-weight: 500;">
+            Welcome to Medicines List Page. Click "Add Medicine" to add new medicines.
+        </a>
+    </div>
+
+    <hr>
+
+    <!-- Medicines Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Drug Name</th>
+                    <th>Stock</th>
+                    <th class="text-center">Action</th>
+                    <!-- Centered Action Column -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medicine of medicines">
+                    <td>{{medicine.id}}</td>
+                    <td>{{medicine.drugName}}</td>
+                    <td>{{medicine.stock}}</td>
+                    <td class="text-center">
+                        <!-- Centered Action Buttons -->
+                        <button (click)="update(medicine.id)" class="btn btn-info btn-sm mx-1">Update</button>
+                        <button (click)="delete(medicine.id)" class="btn btn-danger btn-sm mx-1">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

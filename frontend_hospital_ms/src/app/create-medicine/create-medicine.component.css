@@ -1,0 +1,72 @@
+/* Custom Styles for Form Elements */
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    color: #007bff;
+    font-weight: bold;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.form-group .text-danger {
+    font-size: 0.875rem;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-size: 1.1rem;
+    padding: 12px;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+
+/* Add some spacing and subtle shadow effects */
+
+.container {
+    max-width: 900px;
+}
+
+
+/* Enhance the Navbar */
+
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
